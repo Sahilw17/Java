@@ -98,6 +98,6 @@ class CollegeData
 {
 	public static void main(String[] args) 
 	{
-		Visiting_Faculty=new Faculty();
+		
 	}
 }
