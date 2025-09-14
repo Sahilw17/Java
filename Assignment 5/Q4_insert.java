@@ -1,0 +1,47 @@
+import java.util.*;
+class insert
+{
+	Scanner sc=new Scanner(System.in);
+	int [] arr;
+	int n;
+	
+	insert(int n){
+		this.n=n;
+		arr=new int[n];
+	}
+	void create(){
+		System.out.println("Enter the data in array");
+		for (int i=0;i<n ;i++ )
+		{
+			arr[i]=sc.nextInt();
+		}
+		System.out.println(Arrays.toString(arr));
+	}
+	void ins(int in,insert a1){
+		for (int i=0;i<n ;i++ )
+		{
+			if(i==in){
+				System.out.println("Insert the data: ");
+				a1.arr[i]=sc.nextInt();
+			}
+		}
+		System.out.println(Arrays.toString(arr));
+	}
+	
+}
+
+class Q4_insert 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of array");
+		int n=sc.nextInt();
+		insert a1=new insert(n);
+		a1.create();
+		System.out.println("Enter the index you want to enter the data");
+		int in=n=sc.nextInt();
+		a1.ins(in,a1);
+		//System.out.println("Hello World!");
+	}
+}

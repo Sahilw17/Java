@@ -1,0 +1,64 @@
+import java.util.Scanner;
+class mat
+{
+	Scanner sc=new Scanner(System.in);
+	int r;
+	int c;
+	int [][] arr;
+	mat(int r,int c){
+		this.r=r;
+		this.c=c;
+		arr=new int[r][c];
+	}
+	void create(){
+		System.out.println("Enter the data in the matrix");
+		for (int i=0;i<r ;i++ )
+		{
+			for(int j=0;j<c;j++){
+				arr[i][j]=sc.nextInt();
+			}
+		}
+	}
+	
+	void print(){
+		for (int i=0;i<r ;i++ )
+		{
+			for(int j=0;j<c;j++){
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	void search(mat m1,int num){
+		for (int i=0;i<r ;i++ )
+		{
+			for (int j=0;j<c ;j++ )
+			{
+				if(num==m1.arr[i][j])
+				{
+					System.out.println(i+" , "+j);
+					return;
+				}	
+			}
+		}
+	}
+	
+}
+
+class Mat_Search
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the row and column");
+		int r=sc.nextInt();
+		int c=sc.nextInt();
+		mat m1=new mat(r,c);
+		m1.create();
+		m1.print();
+		int num=3;
+		m1.search(m1,num);
+		//System.out.println("Hello World!");
+	}
+}

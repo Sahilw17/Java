@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class CntTvStock
+{
+	static int stock;
+	Scanner sc=new Scanner(System.in);
+	
+	void get(){
+	System.out.println("Enter the total stock: ");
+	stock=sc.nextInt();
+	}
+	int order;
+	
+/*	CntTvStock(int order){
+		this.order=order;
+	}
+*/	
+	int cnt(int order){
+		stock-=order;
+		return stock;
+	}
+	void avaliable(){
+		System.out.println("The availiable Stock is : "+stock);
+	}
+}
+
+class Warehouse
+{
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc=new Scanner(System.in);
+		CntTvStock cs=new CntTvStock();
+		cs.get();
+		int pravin=cs.cnt(40);
+		System.out.println("Stock after pravin's sale: "+pravin);
+		int reliance=cs.cnt(50);
+		System.out.println("Stock after relaiance's sale: "+reliance);
+		int croma=cs.cnt(100);
+		System.out.println("Stock after croma's sale: "+croma);
+		cs.avaliable();
+
+		
+		//System.out.println("Hello World!");
+	}
+}

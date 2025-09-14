@@ -1,0 +1,52 @@
+import java.util.Scanner;
+class CarRental
+{
+	String vehicle;
+	int km;
+	CarRental(String vehicle,int km)
+	{
+		this.vehicle=vehicle;
+		this.km=km;
+	}
+	int car=800;
+	int van=1000;
+	int bus=1500;
+	int car_km=20;
+	int van_km=50;
+	int bus_km=100;
+	
+	void carbill() {
+		int total=0;
+		if (vehicle.equals("car"))
+		{
+			total=car+(km*car_km);
+			System.out.println("Total bill: "+total);
+		}
+		
+		else if(vehicle.equals("van")) {
+			total=van+(km*van_km);	
+			System.out.println("Total bill: "+total);
+		}
+		else if(vehicle.equal("bus")){
+			total=bus+(bus_km*km);
+			System.out.println("Total bill: "+total);
+		}
+		else{
+			System.out.println("Wrong vehicle entered!");
+		}
+	}
+}
+
+class  Rental
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name of vehicle you rented: ");
+		String vehicle=sc.nextLine();
+		System.out.println("Enter the km");
+		int km=sc.nextInt();
+		CarRental cr=new CarRental(vehicle,km);
+		cr.carbill();
+	}
+}

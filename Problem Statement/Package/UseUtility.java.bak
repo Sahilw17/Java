@@ -1,0 +1,17 @@
+package pack2.Utility;
+import java.util.Scanner;
+import pack1;
+
+class  UseUtility
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter the data: ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		Utility u=new Utility(n);
+		u.isPrime();
+		
+		//System.out.println("Hello World!");
+	}
+}
