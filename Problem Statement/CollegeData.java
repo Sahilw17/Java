@@ -35,6 +35,9 @@ class Faculty extends College
 	}
 	
 	void display(){
+		super.getcode();
+		super.getcourse();
+		super.getname();
 		System.out.println("Faculty Code: "+faculty_code);
 		System.out.println("Faculty Name: "+faculty_name);
 		System.out.println("Faculty Subject: "+subject);
@@ -67,10 +70,10 @@ class PermenantFaculty extends Faculty
 			this.designation=designation;
 			this.salary=salary;
 		}
-		void dispay(){
+		void display(){
+			super.display();
 			System.out.println("Permenant Facult's Designantion: "+designation);
 			System.out.println("Permenant Facult's Salary: "+salary);
-			
 		}
 	}
 
@@ -100,17 +103,27 @@ class CollegeData
 {
 	public static void main(String[] args) 
 	{
+		/*
 		VisitingFaculty v1=new VisitingFaculty(101,"Dinesh","Java","MIT","MCA",12,10,3000,500000);
-		//vf1.display();
+		  //vf1.display();
 		VisitingFaculty v2=new VisitingFaculty(102,"Jalinder","PHP","MIT","MCA",12,15,3200,60000);
-		//vf2.display();
+		  //vf2.display();
 		
 		if(v1.total_payment<v2.total_payment)
 			v2.display();
 		else
 			v1.display();
+		*/
 		
-		//PermenantFaculty pf=new PermenantFaculty(2,"BG Reddy","Python","MIT","MCA",100,"Professor",75000);
+		PermenantFaculty pf1=new PermenantFaculty(2,"BG Reddy","Python","MIT","MCA",100,"Professor",75000);
 		//pf.display();
+		
+		PermenantFaculty pf2=new PermenantFaculty(3,"Prerana","Peace","MIT","MCA",100,"Professor",55000);
+		//pf.display();
+		
+		if(pf1.salary<pf2.salary)
+			pf2.display();
+		else
+			pf1.display();
 	}
 }
