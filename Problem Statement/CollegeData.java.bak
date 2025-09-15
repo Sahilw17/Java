@@ -11,13 +11,13 @@ class College
 	}
 	
 	void getcode(){
-		System.out.println("The code is : "+code);
+		System.out.println("The college code is : "+code);
 	}
 	void getname(){
-		System.out.println("The name is : "+name);
+		System.out.println("The College name is : "+name);
 	}
 	void getcourse(){
-		System.out.println("The course is : "+course);
+		System.out.println("The course in College is : "+course);
 	}
 }
 
@@ -29,6 +29,9 @@ class Faculty extends College
 	
 	Faculty(int faculty_code,String faculty_name,String subject,String name,String course,int code){
 		super(code,name,course);
+		super.getcode();
+		super.getname();
+		super.getcourse();
 		this.faculty_code=faculty_code;
 		this.faculty_name=faculty_name;
 		this.subject=subject;
@@ -39,29 +42,34 @@ class Faculty extends College
 		System.out.println("Faculty Name: "+faculty_name);
 		System.out.println("Faculty Subject: "+subject);
 		}
-		
-	class VisitingFaculty
+	}
+	
+	class VisitingFaculty extends Faculty
 	{
 		int no_of_hrs,per_hr_rate,total_payment;
-		VisitingFaculty(){
+		VisitingFaculty(int faculty_code,String faculty_name,String subject,String name,String course,int code,int no_of_hrs,int per_hr_rate,int total_payment){
+			super(faculty_code,faculty_name,subject,name,course,code);
 			this.no_of_hrs=no_of_hrs;
 			this.per_hr_rate=per_hr_rate;
 			this.total_payment=total_payment;
+			super.display();
 		}
 		void display(){
 		System.out.println("No of hrs Temp Faculty worked: "+no_of_hrs);
 		System.out.println("Per hour rate of Temp Faculty : "+per_hr_rate);
 		System.out.println("Total Payment of Temp Faculty : "+total_payment);
 		}
-	}
-	
-	class PermenantFaculty
+}
+
+class PermenantFaculty extends Faculty
 	{
 		String designation;
 		int salary;
-		PermenantFaculty(String designation,int salary){
+		PermenantFaculty(int faculty_code,String faculty_name,String subject,String name,String course,int code,String designation,int salary){
+			super(faculty_code,faculty_name,subject,name,course,code);
 			this.designation=designation;
 			this.salary=salary;
+			super.display();
 		}
 		void dispay(){
 			System.out.println("Permenant Facult's Designantion: "+designation);
@@ -69,8 +77,6 @@ class Faculty extends College
 			
 		}
 	}
-		
-}
 
 class Student extends College
 {
@@ -98,6 +104,9 @@ class CollegeData
 {
 	public static void main(String[] args) 
 	{
-		
+		//VisitingFaculty vf=new VisitingFaculty(101,"Dinesh","Java","MIT","MCA",12,10,3000,50000);
+	
+		PermenantFaculty pf=new PermenantFaculty(2,"BG Reddy","Python","MIT","MCA",100,"Professor",75000);
+		pf.display();
 	}
 }
