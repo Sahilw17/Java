@@ -29,9 +29,6 @@ class Faculty extends College
 	
 	Faculty(int faculty_code,String faculty_name,String subject,String name,String course,int code){
 		super(code,name,course);
-		super.getcode();
-		super.getname();
-		super.getcourse();
 		this.faculty_code=faculty_code;
 		this.faculty_name=faculty_name;
 		this.subject=subject;
@@ -52,9 +49,9 @@ class Faculty extends College
 			this.no_of_hrs=no_of_hrs;
 			this.per_hr_rate=per_hr_rate;
 			this.total_payment=total_payment;
-			super.display();
 		}
 		void display(){
+		super.display();
 		System.out.println("No of hrs Temp Faculty worked: "+no_of_hrs);
 		System.out.println("Per hour rate of Temp Faculty : "+per_hr_rate);
 		System.out.println("Total Payment of Temp Faculty : "+total_payment);
@@ -69,7 +66,6 @@ class PermenantFaculty extends Faculty
 			super(faculty_code,faculty_name,subject,name,course,code);
 			this.designation=designation;
 			this.salary=salary;
-			super.display();
 		}
 		void dispay(){
 			System.out.println("Permenant Facult's Designantion: "+designation);
@@ -104,9 +100,17 @@ class CollegeData
 {
 	public static void main(String[] args) 
 	{
-		//VisitingFaculty vf=new VisitingFaculty(101,"Dinesh","Java","MIT","MCA",12,10,3000,50000);
-	
-		PermenantFaculty pf=new PermenantFaculty(2,"BG Reddy","Python","MIT","MCA",100,"Professor",75000);
-		pf.display();
+		VisitingFaculty v1=new VisitingFaculty(101,"Dinesh","Java","MIT","MCA",12,10,3000,50000);
+		//vf1.display();
+		VisitingFaculty v2=new VisitingFaculty(102,"Jalinder","PHP","MIT","MCA",12,15,3200,60000);
+		//vf2.display();
+		
+		if(v1.total_payment<v2.total_payment)
+			v2.display();
+		else
+			v1.display();
+		
+		//PermenantFaculty pf=new PermenantFaculty(2,"BG Reddy","Python","MIT","MCA",100,"Professor",75000);
+		//pf.display();
 	}
 }
