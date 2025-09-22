@@ -30,7 +30,9 @@ class PartTime extends Employee
 	
 	PartTime(int h){
 		this.h=h;
-		
+	}
+	
+	{
 		if(h==3)
 			salary=500;
 		else if(h<=5 && h>3)
