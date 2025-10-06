@@ -31,8 +31,8 @@ class savingacc implements cstaccount{
 				throw new lessbalance("Your balance is less to credit");
 		}
 		
-		catch (Exception e) {
-			System.out.println("Your balance is less bro");
+		catch (lessbalance e) {
+			System.out.println(e);
 		}
 		return balance;
 	}
@@ -80,7 +80,7 @@ class bankacc
 		savingacc s=new savingacc();
 		s.deposit(10000);
 		s.display();
-		s.withdraw(3000);
+		s.withdraw(13000);
 		s.display();
 		//System.out.println("Hello World!");
 	}
