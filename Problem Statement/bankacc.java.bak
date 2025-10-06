@@ -1,0 +1,87 @@
+class lessbalance extends Exception
+{
+	lessbalance(String message){
+		super(message);
+	}
+}
+
+
+
+interface cstaccount
+{
+	int deposit(int newbal);
+	int withdraw(int debit);
+	void display();
+	int interest=5;
+}
+
+class savingacc implements cstaccount{
+	 private int balance =0;
+	
+	public int deposit(int newbal){
+		balance=balance+newbal;
+		return balance;
+	}
+	
+	public int withdraw(int debit){
+		try{
+			if(debit < balance)
+				balance=balance-debit;
+			else
+				throw new lessbalance("Your balance is less to credit");
+		}
+		
+		catch (Exception e) {
+			System.out.println("Your balance is less bro");
+		}
+		return balance;
+	}
+	
+	public void display(){
+		System.out.println("Remeaning Balance: "+balance);
+	}
+}
+
+class currentacc implements cstaccount{
+	 int balance =0;
+	 currentacc (int balance){
+		this.balance=balance;
+	 }
+	
+	public int deposit(int newbal){
+		balance=balance+newbal;
+		return balance;
+	}
+	
+	public int withdraw(int debit){
+		try{
+			if(debit < balance)
+				balance=balance-debit;
+			else
+				throw new lessbalance("Your balance is less to credit");
+		}
+		
+		catch (Exception e) {
+			System.out.println("Your balance is less bro");
+		}
+		return balance;
+	}
+
+	public void display(){
+		System.out.println("Remeaning Balance: "+balance);
+	}
+}
+
+
+class bankacc 
+{
+	public static void main(String[] args) 
+	{
+		savingacc s=new savingacc(1000);
+		s.deposit(10000);
+		s.display();
+		s.withdraw(3000);
+		s.display();
+		//System.out.println("Hello World!");
+	}
+}
