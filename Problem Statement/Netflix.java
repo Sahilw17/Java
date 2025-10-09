@@ -11,7 +11,7 @@ class  Netflix
 	public static void main(String[] args) 
 	{
 		//System.out.println("Hello World!");
-		int day=1;
+		int day=0;
 		for(int i=0;i<30;i++){
 			day+=1;
 		try{

@@ -16,7 +16,7 @@ class  Netflix
 			day+=1;
 		try{
 			if(day<28)
-				System.out.println("Remaning days: "+ 28-i);
+				System.out.println("Remaning days: "+ (28-i));
 			else
 				throw new subover("Your Subscription is over!!!!");
 		}
