@@ -1,0 +1,47 @@
+/* A university system needs to check whether a student is eligible to sit for final exams.
+Rules:
+
+The student must have at least 75% attendance.
+
+If attendance is below 75%, the system should throw an exception explaining why.
+
+*/
+
+class LowAttendance extends Exception
+{
+	LowAttendance(String message){
+		super(message);
+	}
+}
+
+class ExamDept
+{
+	void attendancecriteria(String name,int at) {
+		if(at<75){
+			//System.out.println("Your Are Eligible for exam");
+			throw new LowAttendance("Yor are not eligible");
+		}
+		else{
+			System.out.println("Eligible");
+		}
+	}
+}
+
+
+class Student
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		String name="Sahil";
+		int att=7;
+		ExamDept ed=new ExamDept();
+		
+		try{
+			ed.attendancecriteria(name,att);
+		}
+		catch(LowAttendance e){
+			System.out.println("Exception: "+e.getMessage());
+		}
+	}
+}
