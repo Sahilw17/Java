@@ -1,0 +1,62 @@
+/*In an online shopping system:
+
+A user places an order by providing:
+Product name
+Quantity
+Payment amount
+
+The system must:
+Check if quantity is valid (greater than 0).
+Check if payment is sufficient (payment must be >= product price).
+If validations fail, the system should throw custom exceptions using throws.
+*/
+
+
+
+class QuantityValidException extends Exception{
+		QuantityValidException(String msg){
+			super(msg);
+		}
+}
+
+class PaymentException extends Exception
+{
+	PaymentException(String msg){
+		super(msg);
+	}
+}
+
+
+class Order
+{
+	int prodprice=500;
+	void PlaceOrder(String pname,int quantity,int price) throws QuantityValidException,PaymentException {
+		if(quantity<=0){
+			throw new QuantityValidException("Quantity cannot be 0 or negative");
+		}
+		if(price<=prodprice){
+			throw new PaymentException("Inssufficent amount entered");
+		}
+	}
+}
+
+class CstOrder
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		String pname="Jeans";
+		int quantity=1;
+		int price=600;
+		Order o=new Order();
+		try{
+			o.PlaceOrder(pname,quantity,price);
+		}
+		catch(QuantityValidException qv){
+			System.out.println(qv.getMessage());
+		}
+		catch(PaymentException pe){
+			System.out.println(pe.getMessage());
+		}
+	}
+}
