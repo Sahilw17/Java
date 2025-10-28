@@ -22,7 +22,7 @@ class Threadtwo extends Thread
 			for (int i=5;i<10 ;i++ )
 			{
 				System.out.println(Thread.currentThread().getName()+" : "+i);
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			}
 		}
 		catch(InterruptedException e){
