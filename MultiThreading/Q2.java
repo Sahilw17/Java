@@ -1,0 +1,59 @@
+class Q1AMultiTh extends Thread
+{
+	public void run(){
+		try{
+			for (int j=0;j<100 ;j++ )
+			{
+			
+				for (char i='a';i<='z' ;i++ )
+				{
+						System.out.println(Thread.currentThread().getName()+"  : "+i);
+						Thread.sleep(500);
+				}
+			}
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+//0,1,3
+class Q1BMultiTh extends Thread
+{
+	public void run(){
+		try{
+			int a=0;
+			int b=1;
+			int temp;
+			int sum=0;
+			System.out.print(a+",");
+			for (int i=2;i<=15 ;i++ )
+			{
+				sum=a+b;
+				a=b;
+				b=sum;
+				System.out.print(sum+",");
+				Thread.sleep(500);
+			}
+			
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+class  Q2
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		Q1AMultiTh t1=new Q1AMultiTh();
+		Q1BMultiTh t2=new Q1BMultiTh();
+	
+		t1.start();
+		t2.start();
+
+	}
+}

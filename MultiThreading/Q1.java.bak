@@ -1,0 +1,71 @@
+class Q1AMultiTh extends Thread
+{
+	public void run(){
+		try{
+			for (int i=1;i<=100 ;i++ )
+			{
+				if(i % 8==0){
+					System.out.println(Thread.CurrentThread().getName()+" Divisor of 8 :  "+i);
+					Thread.sleep(500);
+				}
+			}
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+
+class Q1CMultiTh extends Thread
+{
+	public void run(){
+		try{
+			for (int i=1;i<=10 ;i++ )
+			{
+				{
+					System.out.println(Thread.CurrentThread().getName()+" Java is Awesome"+i);
+					Thread.sleep(500);
+				}
+			}
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+
+class Q1BMultiTh extends Thread
+{
+	public void run(){
+		try{
+			for (int i=51;i<=100 ;i++ )
+			{
+				if(i % 2==0){
+					System.out.println(Thread.CurrentThread().getName()+" Even Number :  "+i);
+					Thread.sleep(500);
+				}
+			}
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}
+class  Q1
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		Q1AMultiTh t1=new Q1AMultiTh();
+		Q1BMultiTh t2=new Q1BMultiTh();
+		Q1CMultiTh t3=new Q1CMultiTh();
+	
+		t1.start();
+		t2.start();
+		t3.start();
+
+	}
+}
