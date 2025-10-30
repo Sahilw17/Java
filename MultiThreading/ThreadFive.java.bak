@@ -1,0 +1,71 @@
+
+
+
+class threadone implements Runnable
+{
+	public void run(){
+		try{
+			for (int i=0;i<=5 ;i++ )
+			{
+				System.out.println(Thread.currentThread().getname()+" : "+i);
+				Thread.sleep(500);
+			}
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+class threadtwo implements Runnable
+{
+	public void run(){
+		try{
+			for (char i='a';i<'e' ;i++ )
+			{
+				System.out.println(Thread.currentThread().getName()+" : "+i);
+				Thread.sleep(500);
+			}
+		}
+		catch(InterruptedException e){
+		System.out.println(e.getMessage());
+		}
+	}
+}
+
+
+class threadthree implements Runnable
+{
+	public void run(){
+		try{
+			for (int i=0;i<15 ;i++ )
+			{
+				System.out.println("Sahil Don't loose Hope!!!");
+				Thread.sleep(100);
+			}
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+class  ThreadFive
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		threadone t1=new threadone();
+		threadtwo t2=new threadtwo();
+		threadthree t3=new threadthree();
+		
+		Thread p1=new  Thread(t1,"Thread-1");
+		Thread p2=new Thread(t2,"Thread-2");
+		Thread p3=new Thread(t3,"Thread-3");
+		
+		p1.start();
+		p2.start();
+		p3.start();
+	
+	}
+}
