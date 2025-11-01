@@ -1,0 +1,55 @@
+class TicketBooking
+{
+	int ticket=100;
+	
+	synchronized public void book(int tickno){
+			if (ticket>=tickno)
+			{
+				System.out.println(Thread.currentThread().getName()+" We are booking a ticket For You!!");
+				ticket=ticket-tickno;
+				System.out.println(Thread.currentThread().getName()+" "+tickno+" Tickets are booked!!");
+				System.out.println(Thread.currentThread().getName()+"The availiable tickets are: "+ticket);
+			}
+			else{
+				System.out.println("The tickets are not availiable");
+		}
+	}
+}
+
+class Train extends Thread
+{
+	TicketBooking tb;
+	//String name;
+	int tickno;
+	Train(String name,TicketBooking tb,int tickno){
+		super(name);
+		this.tb=tb;
+		this.tickno=tickno;
+	}
+	public void run(){
+		try{
+			tb.book(tickno);
+			Thread.sleep(500);
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+class  TrainReservation
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		TicketBooking tb=new TicketBooking();
+		
+		Train t1=new Train("Omen",tb,20);
+		Train t2=new Train("Raze",tb,15);
+		
+		t1.start();
+		t2.start();
+		
+		
+	}
+}
