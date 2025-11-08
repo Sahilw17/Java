@@ -1,0 +1,37 @@
+import java.io.*;
+class Q4 
+{
+	public static void main(String[] args) throws IOException
+	{
+		//System.out.println("Hello World!");
+		FileReader fr=new FileReader("integer.txt");
+		try{
+			int ch;
+			int []a1=new int[19];
+			while((ch=fr.read()) != -1){
+				for(int i=0;i<19;i++){
+					a1[i]=ch;
+				}
+			}
+			
+			int temp;
+			for(int i=0;i<a1.length;i++){
+				for(int j=0;j<i+1;j++){
+					if(a1[i]>a1[j]){
+						temp=a1[j];
+						a1[j]=a1[i];
+						a1[i]=temp;
+					}
+				}
+			}
+			for(int i=0;i<a1.length;i++){
+				System.out.println(a1[i] );
+			}
+			fr.close();
+		}
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}

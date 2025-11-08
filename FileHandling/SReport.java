@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.io.*;
+class Student
+{
+	int marks;
+	String name;
+	void getdata(){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name of the student");
+		 name=sc.nextLine();
+		System.out.println("Enter the marks");
+		 marks=sc.nextInt();
+	}
+	
+}
+
+
+class SReport
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		Student s1=new Student();
+		Student s2=new Student();
+		
+		try{
+			FileWriter fw= new FileWriter("Report.txt");
+			s1.getdata();
+			fw.write("Name: "+s1.name+"   Marks: "+s1.marks+"\n");
+			s2.getdata();
+			fw.write("Name: "+s2.name+"   Marks: "+s2.marks);
+
+			fw.close();
+			
+			FileReader fr=new FileReader("Report.txt");
+			int ch;
+			while((ch=fr.read()) != -1){
+				System.out.print((char)ch);
+			}
+			fr.close();
+		}
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	
+	}
+}

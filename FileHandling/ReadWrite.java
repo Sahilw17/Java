@@ -15,10 +15,14 @@ class ReadWrite
 			while((i=fr.read()) != -1){
 				System.out.print((char)i);
 			}
-			fr.close();
 		}
 		catch(IOException e){
 			System.out.println(e.getMessage());
+		}
+		finally{
+				
+				fr.close();
+
 		}
 		
 	}
