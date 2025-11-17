@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class a1_q7 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+
+        int letters = 0;
+        int spaces = 0;
+        int numbers = 0;
+        int others = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+
+            if (Character.isLetter(ch)) {
+                letters++;
+            } else if (Character.isDigit(ch)) {
+                numbers++;
+            } else if (Character.isSpaceChar(ch)) {
+                spaces++;
+            } else {
+                others++;
+            }
+        }
+        System.out.println("Letters: " + letters);
+        System.out.println("Digits: " + numbers);
+        System.out.println("Spaces: " + spaces);
+        System.out.println("Other characters: " + others);
+
+        sc.close();
+    }
+}
