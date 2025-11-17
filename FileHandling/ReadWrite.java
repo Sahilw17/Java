@@ -17,7 +17,7 @@ class ReadWrite
 			}
 			fr.close();
 		}
-		catch(IOException e){
+		catch(IOException  e){
 			System.out.println(e.getMessage());
 		}
 	}
