@@ -1,0 +1,43 @@
+/*
+Buffered reader : the bufferd reader reads the line by line data from the file 
+				  which reads a block of characters at once using a buffer memory.
+*/
+
+import java.io.*;
+
+class  CopyFileBuffered
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		try{
+			BufferedReader br=new BufferedReader(new FileReader("Source1.txt"));
+			BufferedWriter bw=new BufferedWriter(new FileWriter("Destinantion2.txt"));
+			
+			String line;
+			while((line = br.readLine()) != null){
+				bw.write(line);
+				bw.newLine();
+			}
+			br.close();
+			bw.close();
+		}
+	
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+		
+		try{
+			BufferedReader br=new BufferedReader(new FileReader("Destinantion2.txt"));
+			String line;
+			while((line = br.readLine()) != null){
+				System.out.println(line);
+			
+			}
+		}
+		
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
