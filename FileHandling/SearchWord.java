@@ -1,0 +1,37 @@
+//Search a Word in File
+
+import java.io.*;
+class  SearchWord
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		try{
+			BufferedReader br=new BufferedReader (new FileReader("Source1.txt"));
+			String word="godh";
+			boolean found=false;
+			
+			String line;
+			while((line=br.readLine()) != null)
+				{
+				if(line.contains(word)){
+					//System.out.println("The Word is fount!!");
+					found=true;
+				}
+			}
+			
+			if(found==true){
+					System.out.println("The Word is fount!!");
+				}
+				
+			else{
+					System.out.println("The Word is not found!!");
+				}
+			br.close();
+		}
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	
+	}
+}
