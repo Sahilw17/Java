@@ -1,0 +1,28 @@
+//Find Longest Line in File
+
+import java.io.*;
+
+class  LongestLine
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		try{
+		BufferedReader br=new BufferedReader(new FileReader("Source1.txt"));
+		String longest="";
+		String line;
+		
+		while((line= readLine()) != null){
+			if(longest.length () <line.length()){
+				longest=line;
+			}
+		}
+		System.out.println("the Longest Line is: "+longest);
+		}		
+		
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	
+	}
+}
