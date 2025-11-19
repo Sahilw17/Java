@@ -1,0 +1,36 @@
+//Count Lines, Words & Characters Together
+
+import java.io.*;
+
+
+class  Count
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+	
+		try{
+			BufferedReader br=new BufferedReader(new FileReader("Source1.txt"));
+			
+			String line;
+			int cntline=0;
+			int words=0;
+			int chara=0;
+			
+			while((line=br.readLine()) != null){
+				cntline++;
+				chara+=line.length();
+				words+=line.split("\\s+").length;
+			}
+			
+			System.out.println("No of Lines are: "+cntline);
+			System.out.println("No of Characters are: "+chara);
+			System.out.println("No of Words are: "+words);
+
+		}
+		
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
