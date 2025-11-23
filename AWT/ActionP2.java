@@ -1,0 +1,50 @@
+//PROGRAM: Take input from TextField and display on Label using Button
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+class MyFrame extends Frame implements ActionListener
+{
+	TextField t;
+	Label l;
+	Button b;
+	Label l2;
+	
+	MyFrame(){
+		Frame f=new Frame();
+		f.setLayout(new FlowLayout());
+		f.setSize(400,400);
+		f.setVisible(true);
+		
+		t=new TextField(150);
+		b=new Button("Show");
+		l=new Label("Enetr the text");
+		l2=new Label();
+		l2.setBounds(0,40,300,300);
+		
+		f.add(l);
+		f.add(t);
+		f.add(b);
+		f.add(l2);
+		
+		b.addActionListener(this);
+		
+		f.setVisible(true);
+		}
+		
+	public void actionPerformed(ActionEvent e){
+		String name=t.getText();
+		l2.setText(name);
+	}
+}
+
+class  ActionP2
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		new MyFrame();
+	}
+}
+
