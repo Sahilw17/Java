@@ -1,0 +1,39 @@
+//Button Click Program (Basic)
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+class ButtonClick extends Frame implements ActionListener
+{
+	Button b;
+	ButtonClick(){
+		Frame f=new Frame("New Window");
+		
+		f.setLayout(null);
+		f.setSize(500,500);
+		
+		b=new Button("Click kar Jara");
+		b.setBounds(50,0,150,40);
+		
+		f.add(b);
+		b.addActionListener(this);
+		
+		f.setVisible(true);
+
+	}
+	
+	public void actionPerformed(ActionEvent e){
+		System.out.println("Chal bhai ho gaya Click");
+		
+	}
+}
+
+class  ActionP1
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		new ButtonClick();
+	}
+}

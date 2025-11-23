@@ -1,0 +1,19 @@
+📌 What is AWT?
+
+AWT (Abstract Window Toolkit) Java ka framework hai jisse hum windows, buttons, textfields, menus, mouse/keyboard events jaisi graphical applications bana sakte hain.
+
+AWT program banne ke baad output Console me nahi, balki Window (Form) me aata hai.
+
+| Component   | Use                  |
+| ----------- | -------------------- |
+| `Frame`     | Window / Main screen |
+| `Label`     | Text display         |
+| `Button`    | Clickable button     |
+| `TextField` | Input box            |
+| `Checkbox`  | Selection            |
+| `Choice`    | Dropdown             |
+| `List`      | Multiple items       |
+| `TextArea`  | Multi-line input     |
+| `Panel`     | Grouping section     |
+
+
