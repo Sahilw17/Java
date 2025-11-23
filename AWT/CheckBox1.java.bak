@@ -1,0 +1,65 @@
+// c1.addItemListener(this);
+//public void itemStateChanged(ItemEvent e)  are used in the checkbox
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+class Hobbies extends Frame implements ItemListener
+{
+	Checkbox c1,c2,c3;
+	Label l1,l2,l3;
+	Hobbies(){
+		Frame f=new Frame();
+		f.setLayout(new FlowLayout());
+		f.setSize(500,500);
+		
+		c1=new Checkbox("Gaming");
+		c2=new Checkbox("Riding");
+		c3=new Checkbox("Traveling");
+		
+		l1=new Label();
+		l2=new Label();
+		l3=new Label();
+		
+		f.add(c1);
+		f.add(c2);
+		f.add(c3);
+		
+		f.add(l1);
+		f.add(l2);
+		f.add(l3);
+		
+		c1.addItemListener(this);
+		c2.addItemListener(this);
+		c3.addItemListener(this);
+		
+		f.setVisible(true);
+	}
+	
+	public void itemStateChanged(ItemEvent e){
+		if(c1.getState())
+			l1.setText("Gaming Acchi Lagti hai");
+		else
+			l1.setText("");
+		
+		if(c2.getState())
+			l2.setText("Late night Gaddi chalana Accha lagta hai");			
+		else
+			l2.setText("");
+		
+		if(c3.getState())
+			l3.setText("Accha Ghumna Pasand hai");
+		else
+			l2.setText("");
+	}
+}
+
+class  CheckBox1
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		new Hobbies();
+	}
+}
