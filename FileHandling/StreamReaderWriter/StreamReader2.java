@@ -1,0 +1,25 @@
+//Stream Reader with Buffered Reader
+
+import java.io.*;
+
+class StreamReader2
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		try{
+			BufferedInputStream fis=new BufferedInputStream(new FileInputStream ("new.png"));
+			BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream("fast2.jpg"));
+			
+			int data;
+			while((data=fis.read()) != -1){
+				fos.write(data);
+			}
+		}
+		
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	
+	}
+}

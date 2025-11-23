@@ -1,0 +1,36 @@
+/*
+Up to now, you worked with FileReader / FileWriter and BufferedReader / BufferedWriter ? these work only for text files (.txt, .csv, .log etc.)
+
+But for binary files, such as:
+Images (.jpg, .png)
+Audio (.mp3)
+Videos (.mp4)
+PDF (.pdf)
+Executables (.exe)
+Zip files (.zip)
+*/
+
+//Copy Binary File (Image / PDF / MP3 etc.)
+
+import java.io.*;
+
+class  StreamReader1
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		try{
+			FileInputStream fis=new FileInputStream("new.png");
+			FileOutputStream fos=new FileOutputStream("copy.png");
+			int data;
+			while((data=fis.read()) != -1){
+				fos.write(data);
+				//System.out.print((char)data);
+			}
+		}
+		
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
