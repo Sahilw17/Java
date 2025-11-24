@@ -32,7 +32,7 @@ class Gender extends Frame implements ItemListener
 		c2.addItemListener(this);
 		c3.addItemListener(this);
 
-		f.display(true);
+		f.setVisible(true);
 		
 	}
 	
