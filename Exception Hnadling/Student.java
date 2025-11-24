@@ -18,7 +18,7 @@ class ExamDept
 {
 	void attendancecriteria(String name,int at) throws LowAttendance{
 		if(at<75){
-			//System.out.println("Your Are Eligible for exam");
+			
 			throw new LowAttendance("Yor are not eligible");
 		}
 		else{
