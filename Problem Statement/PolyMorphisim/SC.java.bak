@@ -1,0 +1,35 @@
+//A calculator supports functions: add(int,int), add(float,float), add(String,String). Implement overloading and overriding in child class ScientificCalculator.
+
+class Calculator
+{
+	int add(int a,int b){
+		return a+b+10;
+	}
+}
+
+class ScientificCalculator extends Calculator
+{
+	float add (float a,float b){
+		return a+b+100;
+	}
+	
+	void add(String a,String b){
+		System.out.println(a+b);
+	}
+}
+
+class  SC
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+			
+		ScientificCalculator sc=new ScientificCalculator();
+		System.out.println(sc.add(1,2));
+		
+		System.out.println(sc.add(10.00,20.00));
+		
+		sc.add("13","17");
+
+	}
+}

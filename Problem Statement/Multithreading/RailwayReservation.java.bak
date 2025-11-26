@@ -1,0 +1,56 @@
+//Railway booking system where multiple threads try to book tickets. Use synchronized block to avoid race condition.
+
+
+class TicketBooking
+{
+	int tickets=100;
+	synchronized void book(int tickno){
+		if(tickets>=tickno){
+			System.out.println(Thread.currentThread().getName()+" we are Booking tickets For You!!");
+			tickets-=tickno;
+			System.out.println(Thread.currentThread().getName()+" Your Tickets are booked");
+		}
+		else{
+			System.out.println("Tickets are not availibale !!");
+		}
+	}
+}
+
+class RailwayTicket extends Thread
+{
+	TicketBooking tb;
+	String name;
+	int tickno;
+	RailwayTicket(String name,TicketBooking tb,int tickno){
+		super(name);
+		this.tb=tb;
+		this.tickno=tickno;
+	}
+	
+	public void run(){
+		try{
+			tb.book(tickno);
+			Thread.sleep(500);
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+
+class RailwayReservation
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		TicketBooking tb=new TicketBooking();
+		
+		RailwayTicket t1=new RailwayTicket("Sahil",tb,20);
+		RailwayTicket t2=new RailwayTicket("Rit",tb,40);
+		
+		t1.start();
+		t2.start();
+
+	}
+}
