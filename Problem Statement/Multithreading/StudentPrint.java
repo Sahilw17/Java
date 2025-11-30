@@ -1,0 +1,49 @@
+//Printer  2 students print documents simultaneously, use synchronized method to avoid overlapping output.
+
+
+class Print
+{
+	synchronized void data(int pages){
+		for (int i=1;i<=pages ;i++ )
+		{
+			System.out.println(Thread.currentThread().getName()+" : Page no:"+ i);
+		}
+	}
+}
+
+class Documents extends Thread
+{
+	Print p;
+	int pages;
+	String name;
+	Documents(String name,Print p,int pages){
+		super(name);
+		this.p=p;
+		this.pages=pages;
+	}
+	
+	public void run(){
+		try{
+			p.data(pages);
+			Thread.sleep(500);
+		}
+		catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+class StudentPrint 
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		Print p=new Print();
+		
+		Documents t1=new Documents("Rayena",p,10);
+		Documents t2=new Documents("Mizo",p,11);
+		
+		t1.start();
+		t2.start();
+	}
+}

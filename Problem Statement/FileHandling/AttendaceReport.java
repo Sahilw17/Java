@@ -1,0 +1,37 @@
+//College attendance management read student attendance from file, calculate present percentage, write report to new file.
+
+import java.io.*;
+import java.util.*;
+
+class AttendaceReport
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+		
+		try{
+			BufferedReader br=new BufferedReader(new FileReader("Attendance.txt"));
+			BufferedWriter bw=new BufferedWriter(new FileWriter("Percentage.txt"));
+			
+			String line;
+			double per=0;
+			while((line=br.readLine())!= null){
+				String data[]=line.split("\\s+");
+				int roll=Integer.parseInt(data[0]);
+				String name=data[1];
+				int total=Integer.parseInt(data[2]);
+				int present=Integer.parseInt(data[3]);
+				per=(present*100.0)/total;
+				
+				bw.write("Roll: " + roll + ", Name: " + name + ", Percentage: " + per + "%");
+                bw.newLine(); 
+			}
+			br.close();
+			bw.close();
+		}
+		
+		catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+	}
+}
