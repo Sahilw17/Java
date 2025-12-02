@@ -20,6 +20,10 @@ class  Arr1
 		ar.set(1,"Tierd");
 		
 		System.out.println("The elements after update in arraylist are: "+ar);
+		
+		for(Object o : ar){
+			System.out.println(o+" ");
+		}
 
 	
 	}

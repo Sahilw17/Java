@@ -17,9 +17,13 @@ class  Arr1
 		ar.remove("Sahil");
 		ar.remove(1);
 		
-		ar.set(2,"Tierd");
+		ar.set(1,"Tierd");
 		
 		System.out.println("The elements after update in arraylist are: "+ar);
+		
+		for(Object o : ar){
+			System.out.println(o+" ");
+		}
 
 	
 	}

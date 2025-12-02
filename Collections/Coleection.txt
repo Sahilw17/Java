@@ -1,0 +1,26 @@
+Collections in Java are data structures used to store and manipulate groups of objects efficiently.
+
+Normal array problem:
+
+Fixed size ?
+
+Cannot grow dynamically ?
+
+Insert/delete is difficult ?
+
+But collections solve these problems:
+
+Dynamic size ?
+
+Easy insert/delete/search ?
+
+Ready-made algorithms ?
+
+Collections are available in java.util package.
+
+?? Types of Collections (Super Important)
+Type	Example Interfaces	Stores	Order	Duplicate Allowed
+List	ArrayList, LinkedList, Vector	Indexed elements	Preserves order	Yes
+Set	HashSet, LinkedHashSet, TreeSet	Unique elements	Depends	No
+Queue	PriorityQueue, LinkedList	FIFO	Order by queue rules	Yes
+Map	HashMap, LinkedHashMap, TreeMap	Key-Value pairs	Depends	Keys ? / Values ?
